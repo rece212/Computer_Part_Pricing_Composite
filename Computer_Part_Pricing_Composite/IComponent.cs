@@ -11,7 +11,6 @@ namespace Computer_Part_Pricing_Composite
     public interface IComponent
     {
         //void DisplayPrice();     
-        void AddItem(Items item);
-        void RemoveItem(Items item);
+        int CalculateTotalPrice();
     }
 }

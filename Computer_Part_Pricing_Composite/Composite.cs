@@ -14,7 +14,7 @@ namespace Computer_Part_Pricing_Composite
 
         private List<Items> components;
 
-        public Composite(string name, int price):base(name, price)
+        public Composite(string name, int price,int quantity) :base(name, price,quantity)
         {
             components = new List<Items>();
         }
@@ -28,8 +28,18 @@ namespace Computer_Part_Pricing_Composite
         {
             components.Remove(item);
         }
-
-
+        public int CalculateTotalPrice()
+        {
+            int miniTotal = (price * quantity);
+            int total = 0;
+            Console.WriteLine(name + " contains the following with prices: "+miniTotal);
+            foreach (IComponent item in components)
+            {
+                total += item.CalculateTotalPrice();
+            }
+            return total+ miniTotal;
+        }
+        /*
         public override int CalculateTotalPrice()
         {
             int total = 0;
@@ -39,9 +49,9 @@ namespace Computer_Part_Pricing_Composite
                 total += item.CalculateTotalPrice();
             }
             return total;
-        }
+        }*/
 
-        
+
 
 
 
